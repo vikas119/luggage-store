@@ -1,0 +1,39 @@
+<section>
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>Book A Slot</mat-panel-title>
+        <mat-panel-description>We will get back to you in an hour</mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput [(ngModel)]="form_data.name"
+        placeholder="Jhon Snow" required>
+        <mat-icon matSuffix>name</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Phone number</mat-label>
+        <input type="tel" matInput [(ngModel)]="form_data.phone"
+        placeholder="987-654-3210" required>
+        <mat-icon matSuffix>phone</mat-icon>
+        <mat-hint>Exclude area code</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="form_data.email"
+        [formControl]="emailFormControl" placeholder="Ex. jhon@example.com" required>
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-icon matSuffix>email</mat-icon>
+      </mat-form-field>
+
+      <button type="button" name="button"mat-raised-button
+      (click)="submit_form()"
+      >Submit</button>
+    </mat-expansion-panel>
+  </mat-accordion>
+</section>
